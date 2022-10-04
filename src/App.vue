@@ -38,20 +38,21 @@ export default {
     addTodo(todo) {
       let id = 0;
 
-      if(this.todos.length > 0) {
-        id = this.todos.length - 1
+      if (this.todos.length > 0) {
+        id = this.todos.at(-1).id + 1
       }
 
       todo.id = id
-      this.todos = [...this.todos, {...todo}]
+      this.todos = [...this.todos, { ...todo }]
+      console.log(this.todos)
     },
-    deleteTodo(id){
+    deleteTodo(id) {
       this.todos = this.todos.filter(
         todo => todo.id !== id
       )
     },
-    editTodo(id, todoEdited){
-      this.todos = this.todos.map(todo => 
+    editTodo(id, todoEdited) {
+      this.todos = this.todos.map(todo =>
         todo.id === id ? todoEdited : todo
       )
     }
