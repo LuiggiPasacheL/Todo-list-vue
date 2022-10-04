@@ -17,10 +17,20 @@ export default {
                 <li>Cerrar Sesión</li>
             </ul>
         </ul>
-        <hr>
     </nav>
 </template>
 
-<style>
+<style scoped>
+nav {
+    background-color: rgba(0, 0, 0, 0.1);
+}
 
+ul {
+    list-style: none;
+    display: inline;
+}
+
+li {
+    display: inline;
+}
 </style>

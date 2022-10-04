@@ -19,15 +19,15 @@ export default {
       todos: [
         {
           id: 1,
-          name: 'Comprar alfajores'
+          name: 'Todo example 1'
         },
         {
           id: 2,
-          name: 'Almuerzo'
+          name: 'Todo example 2'
         },
         {
           id: 3,
-          name: 'Ir a jugar futbol'
+          name: 'Todo example 3'
         },
       ],
       user: 'Luiggi'
@@ -61,17 +61,22 @@ export default {
 </script>
 
 <template>
-  <header>
-    <NavBar :user="user" />
+  <header class="right">
+    <!-- <NavBar :user="user" /> -->
+    <Welcome :user="user"/>
   </header>
 
-  <main>
-    <Welcome :user="user" />
+  <main class="right">
     <TodoInput @add-todo="addTodo" />
     <TodoList @delete-todo="deleteTodo" @edit.todo="editTodo" :todos="todos" />
   </main>
 </template>
 
-<style scoped>
-
+<style>
+body {
+  margin: 0;
+}
+.right {
+  margin-left: 15%;
+}
 </style>
