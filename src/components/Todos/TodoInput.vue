@@ -72,9 +72,10 @@ form {
     width: 100%;
     gap: 10px;
     margin-bottom: 20px;
-    max-width: 50%;
+    max-width: minmax(400px, 100%);
 }
-section {
+form > section:first-child {
     width: 100%;
+    max-width: min(100%, 400px);
 }
 </style>
