@@ -2,6 +2,7 @@
 import TodoInput from './Todos/TodoInput.vue';
 import TodoList from './Todos/TodoList.vue';
 import TodoHeader from './Todos/TodoHeader.vue';
+import {user} from '../data/user.js';
 
 export default {
     name: 'todos',
@@ -14,54 +15,47 @@ export default {
 
     data() {
         return {
-            todos: [
-                {
-                    id: 1,
-                    name: 'Todo example 1'
-                },
-                {
-                    id: 2,
-                    name: 'Todo example 2'
-                },
-                {
-                    id: 3,
-                    name: 'Todo example 3'
-                },
-            ],
-            user: 'esteNombreNoSeDeberiaMostrarAquí'
+            username: user.name,
+            todos: user.todos,
         }
     },
 
     methods: {
         addTodo(todo) {
-            let id = 0;
-
-            if (this.todos.length > 0) {
-                id = this.todos.at(-1).id + 1
-            }
-
-            todo.id = id
-            this.todos = [...this.todos, { ...todo }]
+            user.addTodo(todo);
+            this.todos = user.todos;
         },
         deleteTodo(id) {
-            this.todos = this.todos.filter(
-                todo => todo.id !== id
-            )
+            user.deleteTodo(id);
+            this.todos = user.todos;
         },
         editTodo(id, todoEdited) {
-            this.todos = this.todos.map(todo =>
-                todo.id === id ? todoEdited : todo
-            )
+            user.editTodo(id, todoEdited);
+            this.todos = user.todos;
+        },
+        validateUser() {
+            if(!this.username) {
+                this.$router.push('/');
+            }
+        },
+        removeUser() {
+            user.setDefault();
+            this.$router.push('/');
         }
     },
+
+    beforeMount() {
+        this.validateUser();
+    }
 }
 </script>
 
 <template>
     <main class="margin">
-        <TodoHeader :user="user" />
+        <TodoHeader :user="username" />
         <TodoInput @add-todo="addTodo" />
         <TodoList @delete-todo="deleteTodo" @edit.todo="editTodo" :todos="todos" />
+        <b-button variant="danger" v-on:click="removeUser">Salir</b-button>
     </main>
 </template>
 

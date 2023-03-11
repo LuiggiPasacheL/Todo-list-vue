@@ -1,5 +1,6 @@
 import Todos from './components/Todos.vue';
 import Welcome from './components/Welcome.vue';
+import App from './App.vue'
 
 import { createApp } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router';
