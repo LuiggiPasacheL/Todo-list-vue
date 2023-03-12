@@ -1,6 +1,5 @@
 <script>
 import WelcomeInput from './Welcome/WelcomeInput.vue';
-import WelcomeTitle from './Welcome/WelcomeTitle.vue'
 
 export default {
 
@@ -8,7 +7,6 @@ export default {
 
     components: {
         WelcomeInput,
-        WelcomeTitle,
     },
 
     methods: {

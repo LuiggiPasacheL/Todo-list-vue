@@ -1,14 +1,12 @@
 <script>
 import TodoInput from './Todos/TodoInput.vue';
 import TodoList from './Todos/TodoList.vue';
-import TodoHeader from './Todos/TodoHeader.vue';
 import {user} from '../data/user.js';
 
 export default {
     name: 'todos',
 
     components: {
-        TodoHeader,
         TodoInput,
         TodoList,
     },
