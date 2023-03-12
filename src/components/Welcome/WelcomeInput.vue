@@ -15,13 +15,14 @@ export default {
             processing: false,
             error: false,
             correct: false,
-            name: null,
+            inputName: null,
+            user,
         }
     },
 
     methods: {
         sendForm() {
-            const validName = user.setName(this.name);
+            const validName = this.user.setName(this.inputName);
 
             this.processing = true;
             this.resetState()
@@ -46,7 +47,7 @@ export default {
 
 <template>
     <b-form-group>
-        <b-form-input type="text" placeholder="Ej: usuario001" v-model="name" v-on:keyup.enter="sendForm"
+        <b-form-input type="text" placeholder="Ej: usuario001" v-model="this.inputName" v-on:keyup.enter="sendForm"
             :class="{ 'is-invalid': processing && error, 'is-valid': correct }" @focus="resetState"
             @keypress="resetState" autofocus>
         </b-form-input>

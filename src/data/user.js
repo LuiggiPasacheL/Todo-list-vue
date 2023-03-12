@@ -16,7 +16,11 @@ export const user = {
         },
     ],
     setName(inputName) {
-        if (!inputName || inputName.trim().split(" ").length > 1) {
+        console.log((typeof inputName === 'string'))
+        if (typeof inputName !== 'string') {
+            return false
+        }
+        if ( !inputName || inputName.trim().split(" ").length > 1) {
             return false;
         }
         this.name = inputName;

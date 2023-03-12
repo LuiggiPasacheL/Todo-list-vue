@@ -11,15 +11,6 @@ export default {
         WelcomeTitle,
     },
 
-    data() {
-        return {
-            processing: false,
-            error: false,
-            correct: false,
-            name: null,
-        }
-    },
-
     methods: {
         showTodos() {
             this.$router.push('/todos')
@@ -29,10 +20,8 @@ export default {
 </script>
 
 <template>
-    <main class="margin">
-        <WelcomeTitle />
-        <WelcomeInput @show-todos="showTodos"/>
-    </main>
+    <p>Ingrese nombre de usuario:</p>
+    <WelcomeInput @show-todos="showTodos"/>
 </template>
 
 <style></style>

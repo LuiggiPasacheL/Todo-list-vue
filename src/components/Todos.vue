@@ -15,31 +15,27 @@ export default {
 
     data() {
         return {
-            username: user.name,
-            todos: user.todos,
+            user,
         }
     },
 
     methods: {
         addTodo(todo) {
-            user.addTodo(todo);
-            this.todos = user.todos;
+            this.user.addTodo(todo);
         },
         deleteTodo(id) {
-            user.deleteTodo(id);
-            this.todos = user.todos;
+            this.user.deleteTodo(id);
         },
         editTodo(id, todoEdited) {
-            user.editTodo(id, todoEdited);
-            this.todos = user.todos;
+            this.user.editTodo(id, todoEdited);
         },
         validateUser() {
-            if(!this.username) {
+            if(!this.user.name) {
                 this.$router.push('/');
             }
         },
         removeUser() {
-            user.setDefault();
+            this.user.setDefault();
             this.$router.push('/');
         }
     },
@@ -51,12 +47,9 @@ export default {
 </script>
 
 <template>
-    <main class="margin">
-        <TodoHeader :user="username" />
-        <TodoInput @add-todo="addTodo" />
-        <TodoList @delete-todo="deleteTodo" @edit.todo="editTodo" :todos="todos" />
-        <b-button variant="danger" v-on:click="removeUser">Salir</b-button>
-    </main>
+    <TodoInput @add-todo="addTodo" />
+    <TodoList @delete-todo="deleteTodo" @edit.todo="editTodo" :todos="this.user.todos" />
+    <b-button variant="danger" v-on:click="removeUser">Salir</b-button>
 </template>
 
 <style></style>

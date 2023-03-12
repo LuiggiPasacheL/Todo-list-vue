@@ -1,7 +1,7 @@
 
 <script>
 export default {
-    name: 'welcome-input',
+    name: 'header',
     props: {
         name: String
     }
@@ -9,8 +9,7 @@ export default {
 </script>
 
 <template>
-    <h1>Bienvenido</h1>
-    <p>Ingrese nombre de usuario:</p>
+    <h1>Bienvenido(a)<span v-if="this.name">, {{this.name}}</span></h1>
 </template>
 
 <style>
