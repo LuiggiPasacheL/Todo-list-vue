@@ -1,6 +1,6 @@
-# vue-project
+# Todo-list-vue
 
-This template should help get you started developing with Vue 3 in Vite.
+My project for vue 3 learning, is a minimalist Todo list for a single user. enter in this [link](https://luiggipasachel.github.io/Todo-list-vue/#/) to see the app.
 
 ## Recommended IDE Setup
 
